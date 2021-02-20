@@ -27,7 +27,10 @@ export async function run() {
         info.innerHTML = "Sync started - Promise not resolved";
         return p.then(() => {
           console.log('resolved');
-          document.getElementById('info').innerHTML = "Promise resolved!";
+          info.innerHTML = "Promise resolved!";
+        }).catch(e => {
+            console.log('caught error', e);
+            info.innerHTML = "Promise rejected, see console for error object";
         });
     });
 
